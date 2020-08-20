@@ -18,7 +18,12 @@ ext {
 	set('springCloudVersion', "Hoxton.SR7")
 }
 
-jib.to.image = 'shimikano/eureka-server:${project.version}'
+jib {
+	to {
+		image 'shimikano/eureka-server'
+		tags = [project.version]
+	}
+}
 
 dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'

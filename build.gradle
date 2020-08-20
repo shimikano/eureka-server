@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'com.google.cloud.tools.jib' version '2.5.0'
 }
 
 group = 'ch.yoshimi'
@@ -15,6 +16,8 @@ repositories {
 ext {
 	set('springCloudVersion', "Hoxton.SR7")
 }
+
+jib.to.image = 'shimikano/eureka-server:${project.version}'
 
 dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
